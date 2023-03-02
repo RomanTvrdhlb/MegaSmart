@@ -241,6 +241,16 @@
    grid-gap: clamp(20px, 3.724vw, 47px);   
   }
 
+  &__icon{
+
+
+    &--mode{
+      position: absolute;
+      top: 17%;
+      right: 0;
+    }
+  }
+
   &--separate {
     grid-template-columns: auto 1fr;
 
@@ -492,6 +502,7 @@
   }
 
   &__content {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
