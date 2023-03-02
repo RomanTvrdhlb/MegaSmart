@@ -67,6 +67,10 @@
     padding: 0;
     padding-bottom: 240px;
 
+    @include laptop{
+      padding-bottom: 120px;
+    }
+
     @include tablet{
       padding-bottom: initial;
     }
@@ -391,7 +395,7 @@
       text-align: start;
       text-transform: none;
 
-      @include small-tablet{
+      @include tablet{
         text-align: center;
       }
     }
@@ -439,16 +443,16 @@
       right: 0;
       width: Min(11.648vw, 147px);
       @include tablet{
-        width: Min(8.716vw, 110px);
+        width: clamp(80px, 8.716vw, 110px);
         top:-7%;
       }
       @include small-tablet{
-        top: -5px;
+        top: -10px;
         left: 70%;
       }
-      @include mobile{
-        top: 2px;
-      }
+      // @include mobile{
+      //   top: -10px;
+      // }
     }
   }
 
@@ -459,7 +463,7 @@
       text-align: start;
       text-transform: none;
 
-      @include small-tablet{
+      @include tablet{
         text-align: center;
       }
     }
@@ -738,6 +742,15 @@
         @include tablet{
           left: -15%;
         }
+
+        @include mobile{
+          left: 50%;
+          transform: translateX(-60%);
+        }
+      }
+
+      @include mobile{
+        justify-content: center;
       }
     }
 
@@ -772,13 +785,14 @@
       }
 
       @include tablet{
-        justify-self: end;
+        justify-self: center;
         top: 0;
+        right: 0;
       }
 
-      @include small-tablet{
-        justify-self: start;
-      }
+      // @include small-tablet{
+      //   justify-self: start;
+      // }
     }
 
     &--brow{
@@ -797,13 +811,12 @@
       }
 
       @include tablet{
-        justify-self: end;
+        justify-self: center;
         top: 0;
+        right: 0;
       }
 
       @include small-tablet{
-        justify-self: initial;
-        right: 0;
         padding-bottom: clamp(10px, 2.377vw, 30px);
       }
     }
@@ -849,7 +862,7 @@
 
     &--second{
      left: -25px;
-     width: Min(46.513vw, 587px);
+     width: clamp(350px, 46.513vw, 587px);
 
      @include tablet{
       left: 0;
