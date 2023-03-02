@@ -6,8 +6,8 @@
     justify-content: center;
     padding-bottom: clamp(15px, 2.615vw, 33px);
     padding-top: clamp(40px, 6.894vw, 87px);
-    @include mobile {
-      width: 90%;
+    @include laptop {
+      width: clamp(200px, 50.872vw, 642px);
 
     }
   }
@@ -53,6 +53,12 @@
     width: fit-content;
     grid-gap: clamp(8px, 1.268vw, 16px);
     position: relative;
+
+    svg{
+      @include small-tablet{
+        width: clamp(210px, 25.119vw, 317px);
+      }
+    }
   }
 
   .title {

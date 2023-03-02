@@ -18,6 +18,12 @@
   }
 }
 
+@mixin laptop {
+  @media (max-width: (1240px)) {
+    @content;
+  }
+}
+
 @mixin tablet {
   @media (max-width: (1024px)) {
     @content;
@@ -32,6 +38,12 @@
 
 @mixin mobile {
   @media (max-width: (576px)) {
+    @content;
+  }
+}
+
+@mixin ios {
+  @media (max-width: (414px)) {
     @content;
   }
 }

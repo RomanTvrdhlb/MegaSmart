@@ -23,16 +23,21 @@
   &__box{
     display: flex;
     flex-direction: column;
-    grid-gap: 25px;
+    grid-gap: clamp(10px, 1.981vw, 25px);
     align-items: center;
     padding: clamp(15px, 1.981vw, 25px) clamp(15px, 2.377vw, 30px) clamp(25px, 3.566vw, 45px);
     background: var(--bg-b);
     border-radius: 30px;
+    max-width: 691px;
 
     p{
       text-align: center;
       padding-bottom: 10px;
       max-width: 631px;
+
+      @include laptop{
+        max-width: 500px;
+      }
     }
   }
 
@@ -40,16 +45,53 @@
     display: flex;
     align-items: center;
     grid-gap: clamp(15px, 2.932vw, 37px);
+
+    @include small-tablet{
+      flex-direction: column;
+      grid-gap: 5px;
+    }
+
+    .full-row__icon{ 
+      display: flex;
+      justify-content: center;
+    svg{
+      width: 70%;
+    }
+    img,picture{
+      width: 90%;
+    }
+  }
   }
 
   &__about{
     padding: 0;
     padding-bottom: 240px;
 
+    @include tablet{
+      padding-bottom: initial;
+    }
+ 
+    
     &--image{
       position: absolute;
       right: -3%;
       top: -20%;
+
+      @include laptop{
+        width: clamp(200px, 47.544vw, 600px);
+      }
+      @include tablet{
+        display: none;
+      }
+    }
+
+  }
+
+  &__item{
+    .full-row__image{
+      @include laptop{
+        width: clamp(50px, 10.935vw, 138px);
+      }
     }
   }
 
@@ -58,7 +100,7 @@
     padding: 0;
     display: flex;
     justify-content: end;
-    grid-gap: clamp(35px, 6.101vw, 77px);
+    grid-gap: clamp(15px, 6.101vw, 77px);
     flex-direction: row;
 
     p{
@@ -74,30 +116,69 @@
         top: 50%;
         transform: translateY(-55%);
         left: calc((clamp(35px, 6.101vw, 77px) / 2) * -1);
+
+        @include small-tablet{
+          display: none;
+        }
       }
     }
+
+    @include small-tablet{
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    } 
   }
 
   &--channel{
     padding: 0;
-    grid-gap: clamp(20px, 2.377vw, 30px);
+    grid-gap: clamp(10px, 2.377vw, 30px);
     align-items: center;
     p{
       max-width: 600px;
       text-align: center;
     }
+
+    .full-row__icon{ 
+      display: flex;
+      justify-content: center;
+    svg{
+      width: 80%;
+    }
   }
+  }
+
+
 
  &--mode{
   padding: clamp(100px, 12.995vw, 164px) 0 clamp(250px, 31.696vw, 400px);
   grid-gap: clamp(20px, 2.377vw, 30px);
   align-items: center;
+
+  @include laptop{
+    padding-bottom: clamp(100px, 15.848vw, 200px);
+  }
+  @include small-tablet{
+    padding: clamp(15px, 2.377vw, 30px) 0;
+  }
   .subtitle{
     max-width: 552px;
   }
   p{
-    max-width: 623px;
+    max-width: 610px;
     text-align: center;
+    z-index: 3;
+
+    @include laptop{
+      max-width: 500px;
+    }
+
+    @include tablet{
+      max-width: 350px;
+    }
+    @include small-tablet{
+      max-width: 100%;
+    }
   }
 
   .full-row__image{
@@ -106,11 +187,30 @@
     &--left{
       top: 0;
       left: -13%;
+
+      @include laptop{
+        width: clamp(200px, 35.816vw, 452px);
+        top: 7%;
+      }
+      @include small-tablet{
+        display: none;
+      }
     }
 
     &--right{
       right: -17%;
       top: 13%;
+
+      @include laptop{
+        width: clamp(200px, 35.816vw, 452px);
+        top: 21%;
+      }
+      @include tablet{
+        top: 24%;
+      }
+      @include small-tablet{
+        display: none;
+      }
     }
   }
  }
@@ -122,6 +222,19 @@
     }
     .subtitle{
       text-align: start;
+      @include tablet{
+        text-align: center;
+      }
+    }
+
+    @include laptop{
+      padding: clamp(20px, 7.048vw, 60px) 0;
+    }
+    
+    @include tablet{
+      padding: clamp(10px, 2.377vw, 30px) 0;
+      align-items: center;
+      text-align: center;
     }
   }
 
@@ -150,16 +263,43 @@
     
     padding: clamp(20px, 3.011vw, 38px) 0 clamp(30px, 4.12vw, 4.12vw);
     grid-gap: 0;
+
+    @include small-tablet{
+      background-size: contain;
+      background-position: top;
+    }
+
+    .full-row__image{
+      width: Min(18.146vw, 229px);
+
+      @include small-tablet{
+        position: absolute;
+        top: 3%;
+        left: 0;
+      }
+    }
   }
 
   &__content{
     display: flex;
     flex-direction: column;
-    grid-gap: clamp(250px, 26.149vw, 330px);
+    grid-gap: clamp(230px, 26.149vw, 330px);
     align-items: center;
 
     p{
       max-width: 541px;
+
+      @include small-tablet{
+        text-align: center;
+      }
+    }
+
+    @include mobile{
+      grid-gap: clamp(200px, 18.225vw, 230px);
+    }
+
+    @include ios{
+      grid-gap: clamp(120px, 11.886vw, 150px);
     }
   }
 
@@ -170,6 +310,18 @@
     @include mobile {
       padding-bottom: Min(56.129vw, 696px);
     }
+  }
+
+  &__image{
+
+    &--first{
+    img,picture{
+      width: clamp(150px, 56.339vw, 711px);
+      @include laptop{
+        width: clamp(150px, 47.544vw, 600px);
+      }
+    }
+  }
   }
 
 
@@ -198,11 +350,18 @@
       @include tablet{
         grid-template-columns: repeat(6, 1fr);
       }
+
+      @include mobile{
+        grid-template-columns: repeat(5, 1fr);
+      }
     }
 
     &--info{
       grid-template-columns: repeat(6, 1fr);
       
+      @include mobile{
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
   }
 }
@@ -220,9 +379,9 @@
     grid-template-columns: 100%;
     text-align: center;
 
-    br {
-      display: none;
-    }
+    // br {
+    //   display: none;
+    // }
   }
 
   &--image {
@@ -231,14 +390,29 @@
     .subtitle{
       text-align: start;
       text-transform: none;
+
+      @include small-tablet{
+        text-align: center;
+      }
     }
 
+    @include tablet{
+      grid-template-columns: 100%;
+    }
+
+    @include mobile{
+      padding-bottom: clamp(20px, 4.032vw, 50px);
+    }
   }
 
   &__wrapper{
    display: flex;
    align-items: center;
-   grid-gap: clamp(20px, 3.724vw, 47px);   
+   grid-gap: clamp(5px, 3.724vw, 47px);   
+
+   @include mobile{
+    flex-direction: column;
+   }
   }
 
   &__inner{
@@ -257,6 +431,10 @@
       position: absolute;
       top: 17%;
       right: 0;
+      width: Min(11.648vw, 147px);
+      @include tablet{
+        display: none;
+      }
     }
   }
 
@@ -266,12 +444,37 @@
     .subtitle{
       text-align: start;
       text-transform: none;
+
+      @include small-tablet{
+        text-align: center;
+      }
+    }
+
+    @include tablet{
+      grid-template-columns: 100%;
+    }
+
+    @include small-tablet{
+      justify-items: center;
+      p{
+        text-align: center;
+      }
     }
   }
 
   &--mode{
     margin-top: calc(clamp(20px, 4.032vw, 50px) * -1);
     grid-template-columns: 1fr 1fr;
+
+    @include tablet{
+      margin: 0;
+      grid-template-columns: 100%;
+      justify-items: center;
+
+      .subtitle{
+        text-align: center;
+      }
+    }
   }
 
   &--first{
@@ -389,18 +592,18 @@
 
   &__image {
     position: relative;
-    z-index: 2;
-    width: 100%;
+    z-index: 1;
+    width: Min(52.932vw, 668px);
     display: flex;
     // border-radius: clamp(30px, 4.478vw, 60px);
 
-    @include small-tablet {
-      height: 40vw;
-    }
+    // @include small-tablet {
+    //   height: 40vw;
+    // }
 
-    @include mobile {
-      height: 50vw;
-    }
+    // @include mobile {
+    //   height: 50vw;
+    // }
 
     picture, img {
       width: 100%;
@@ -411,15 +614,15 @@
       position: relative;
       justify-content: end;
       picture, img {
-        width: 550px;
+        width: Min(43.582vw, 550px);
         margin-right: -15px;
       }
 
       &::before{
         position: absolute;
         content: '';
-        width: 857px;
-        height: 536px;
+        width: Min(67.908vw, 857px);
+        height: Min(42.472vw, 536px);
         background-image: url(/img/bg1.png);
         background-repeat: no-repeat;
         background-size: contain;
@@ -432,7 +635,7 @@
     &--top{
       right: -88px;
       top: calc(clamp(20px, 4.032vw, 50px) * -1);
-
+      width: Min(57.052vw, 720px);
       &::before,&::after{
         position: absolute;
         content: '';
@@ -453,10 +656,24 @@
         width: 119px;
         height: 100%;
         background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0) 85.77%);
+
+        @include small-tablet{
+          display: none;
+        }
+      }
+
+      @include tablet{
+        justify-self: end;
+        top: 0;
+      }
+
+      @include small-tablet{
+        justify-self: start;
       }
     }
 
     &--brow{
+      width: Min(57.052vw, 720px);
       right: -88px;
       &::before{
         position: absolute;
@@ -468,6 +685,17 @@
         background: linear-gradient(360deg, #000000 0%, rgba(0, 0, 0, 0) 85.77%);
         transform: rotate(-180deg);
         z-index: 3;
+      }
+
+      @include tablet{
+        justify-self: end;
+        top: 0;
+      }
+
+      @include small-tablet{
+        justify-self: initial;
+        right: 0;
+        padding-bottom: clamp(10px, 2.377vw, 30px);
       }
     }
 
@@ -502,33 +730,49 @@
     &--third{
       top: -25px;
       left: -30px;
+      width: Min(52.932vw, 668px);
+      // border-radius: 32px;
+
+      @include tablet{
+        top: 0;
+        left: 0;
+      }
     }
 
     &--custom{
       margin-left: -86px;
       position: relative;
+      width: Min(57.052vw, 720px);
 
       &::after{
         content: '';
         position: absolute;
         width: 606px;
         height: 546px;
-        bottom: -100%;
-        transform: translateY(23.5%);
+        bottom: -135%;
+        transform: translateY(-22%);
         left: 0;
+        z-index: -1;
         background-image: url(/img/icon2.png);
         background-repeat: no-repeat;
         background-size: contain;
+
+        @media (max-width: (1070px)) {
+          display: none;
+        }
       }
+
+      @include tablet{
+        margin: 0;
+      }
+
     }
 
     &--absolute{
       position: absolute;
       bottom: -70%;
       left: 25%;
-      img,picture{
-        max-width: 398px;
-      }
+      width: Min(31.537vw,398px);
     }
 
     &--fourth{
@@ -549,8 +793,12 @@
     z-index: 4;
     grid-gap: 20px;
 
-    @include small-tablet {
+    @include tablet {
       align-items: center;
+
+      p{
+        text-align: center;
+      }
     }
 
     &--mode{
@@ -570,6 +818,18 @@
 
   &--custom{
     padding: 0;
+
+    @include tablet{
+        justify-items: center;
+      .double-row__content--mode{
+        align-items: center;
+        text-align: center;
+        padding-bottom: clamp(10px, 2.377vw, 30px);
+      }
+      .subtitle--mode{
+        text-align: center;
+      }
+    }
   }
 }
 
@@ -579,6 +839,10 @@
   grid-gap: clamp(50px, 13.471vw, 170px);
   justify-content: center;
 
+  @include mobile{
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px 20px;
+  }
 
   &__content{
     width: fit-content;
@@ -586,6 +850,23 @@
     flex-direction: column;
     align-items: center;
     grid-gap: clamp(10px, 2.298vw, 29px);
+
+    .full-row__image{
+      @include laptop{
+        width: clamp(50px, 10.935vw, 138px);
+      }
+    }
+
+    @include mobile{
+      width: 100%;
+    }
+
+    &--mode{
+      @include mobile{
+        order: 3;
+        grid-column: span 2;
+      }
+    }
   }
 
   &__wrapper{
