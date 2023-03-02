@@ -849,6 +849,7 @@
 
     &--second{
      left: -25px;
+     width: Min(46.513vw, 587px);
 
      @include tablet{
       left: 0;
