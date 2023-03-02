@@ -102,7 +102,7 @@ picture {
   grid-gap: clamp(20px, 3.472vw, 50px);
 
   @include mobile {
-    padding: 0 15px clamp(20px, 7.258vw, 90px);
+    padding: 0 15px 0;
   }
 }
 
